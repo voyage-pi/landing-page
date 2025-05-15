@@ -2,6 +2,8 @@ import { Image, Link, ChevronRight } from "../components/next-shim"
 import { Button } from "../components/ui/button"
 import Navbar from "../components/navbar"
 
+import PlatformDemo from "../components/PlatformDemo"
+
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -53,7 +55,7 @@ export default function Home() {
         </div>
 
         {/* Floating App Prints Display - Scattered like in the reference image */}
-        <div className="relative w-full min-h-[350px] md:min-h-[480px] px-4 pb-12 overflow-hidden">
+        <div className="relative w-full min-h-[800px] md:min-h-[800px] px-4 pb-12 overflow-hidden">
           {/* Central dark website - larger */}
           <div className="floating-print absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/3 z-30 w-[280px] sm:w-[400px] md:w-[500px] shadow-2xl border-4 border-white rounded-xl overflow-hidden">
             <Image
@@ -178,7 +180,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-16 bg-white">
+      <section id="features" className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Powerful Features</h2>
 
@@ -199,67 +201,72 @@ export default function Home() {
         </div>
       </section>
 
-      {/* App Prints Section with Abstract Background */}
-      <section className="py-16 bg-gradient-to-r from-[#f0f1f5] via-[#f8e4e8] to-[#f0f1f5] relative overflow-hidden">
-        {/* Wave Background Elements */}
-        <div className="absolute inset-0 z-0 opacity-20">
-          <div className="wave wave4"></div>
-          <div className="wave wave5"></div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1440 320"
+      {/* Platform Demo Videos Section with Abstract Background */}
+      <section className="py-28 bg-gradient-to-r from-[#f0f1f5] via-[#f8e4e8] to-[#f0f1f5] relative overflow-hidden min-h-[800px]">
+        {/* Wavy section divider at the top */}
+        <div className="absolute top-0 left-0 w-full overflow-hidden">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 1440 320" 
+            className="w-full"
+            preserveAspectRatio="none"
+            style={{ transform: 'rotate(180deg)', marginTop: '-2px' }}
+          >
+            <path 
+              fill="#ffffff" 
+              fillOpacity="1" 
+              d="M0,64L60,58.7C120,53,240,43,360,74.7C480,107,600,181,720,186.7C840,192,960,128,1080,112C1200,96,1320,128,1380,144L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+              className="wave-path-top"
+            ></path>
+          </svg>
+        </div>
+
+        {/* Wave Background Elements - Enhanced with more pronounced waves */}
+        <div className="absolute inset-0 z-0 opacity-30">
+          {/* New dense wave layers */}
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 1440 640" 
+            className="absolute top-1/3 left-0 w-full h-full"
+            preserveAspectRatio="none"
+          >
+            <path 
+              fill="rgba(254, 56, 92, 0.35)" 
+              fillOpacity="1" 
+              d="M0,32L30,53.3C60,75,120,117,180,122.7C240,128,300,96,360,90.7C420,85,480,107,540,144C600,181,660,235,720,229.3C780,224,840,160,900,149.3C960,139,1020,181,1080,186.7C1140,192,1200,160,1260,160C1320,160,1380,192,1410,208L1440,224L1440,640L1410,640C1380,640,1320,640,1260,640C1200,640,1140,640,1080,640C1020,640,960,640,900,640C840,640,780,640,720,640C660,640,600,640,540,640C480,640,420,640,360,640C300,640,240,640,180,640C120,640,60,640,30,640L0,640Z"
+              className="wave-animation-3"
+            ></path>
+          </svg>
+          
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 1440 640" 
             className="absolute top-0 left-0 w-full h-full"
             preserveAspectRatio="none"
           >
-            <path
-              className="wave-path wave-path-1"
-              fill="rgba(254, 56, 92, 0.2)"
-              d="M0,224L48,224C96,224,192,224,288,197.3C384,171,480,117,576,117.3C672,117,768,171,864,197.3C960,224,1056,224,1152,197.3C1248,171,1344,117,1392,90.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            ></path>
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1440 320"
-            className="absolute bottom-0 left-0 w-full h-full"
-            preserveAspectRatio="none"
-          >
-            <path
-              className="wave-path wave-path-2"
-              fill="rgba(254, 56, 92, 0.15)"
-              d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,90.7C672,85,768,107,864,117.3C960,128,1056,128,1152,106.7C1248,85,1344,43,1392,21.3L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            <path 
+              fill="rgba(254, 56, 92, 0.2)" 
+              fillOpacity="1" 
+              d="M0,320L30,304C60,288,120,256,180,250.7C240,245,300,267,360,266.7C420,267,480,245,540,245.3C600,245,660,267,720,261.3C780,256,840,224,900,213.3C960,203,1020,213,1080,224C1140,235,1200,245,1260,250.7C1320,256,1380,256,1410,256L1440,256L1440,640L1410,640C1380,640,1320,640,1260,640C1200,640,1140,640,1080,640C1020,640,960,640,900,640C840,640,780,640,720,640C660,640,600,640,540,640C480,640,420,640,360,640C300,640,240,640,180,640C120,640,60,640,30,640L0,640Z"
+              className="wave-animation-1"
             ></path>
           </svg>
         </div>
 
-        <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#2c303b]">App Prints</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {appPrints.map((print, index) => (
-              <div
-                key={index}
-                className="bg-white/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group"
-              >
-                <div className="h-48 bg-gray-200 relative overflow-hidden">
-                  <Image
-                    src={print.image || "/placeholder.svg?height=300&width=400"}
-                    alt={print.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-                <div className="p-6 text-[#2c303b]">
-                  <h3 className="text-xl font-semibold mb-2">{print.title}</h3>
-                  <p className="text-gray-600 mb-4">{print.description}</p>
-                  <Link href="#" className="text-[#fe385c] hover:text-[#fe385c]/80 font-medium inline-flex items-center">
-                    Learn more <ChevronRight className="w-4 h-4 ml-1" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="container mx-auto px-4 relative z-10 my-80">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-24 leading-tight tracking-tight">
+            <span className="bg-clip-text bg-gradient-to-r from-secondary to-secondary via-primary text-transparent">Because your taste deserves</span> more than generic recommendations
+          </h2>
+          
+          <PlatformDemo />
+          
         </div>
       </section>
+
+      {/* Wave divider between sections */}
+      <div className="w-full relative z-10 bg-gradient-to-r from-[#f0f1f5] via-[#f8e4e8] to-[#f0f1f5] overflow-hidden mt-[-100px]">
+        
+      </div>
 
       {/* Abstract Floating Elements Section */}
       <section className="py-16 bg-white relative overflow-hidden">
@@ -394,12 +401,12 @@ const features = [
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={2}
-          d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+          d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
         />
       </svg>
     ),
-    title: "Responsive Design",
-    description: "Fully responsive layout that looks great on any device, from mobile phones to desktop computers.",
+    title: "Dream Journey Designer",
+    description: "Create a personalized itinerary based on your preferences and interests.",
   },
   {
     icon: (
@@ -414,27 +421,12 @@ const features = [
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={2}
-          d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zm-7-3.5v3.5m0 0v3.5m0-3.5h3.5m-3.5 0H7.5"
         />
       </svg>
     ),
-    title: "Modern UI Components",
-    description: "Beautiful, customizable UI components that you can easily integrate into your projects.",
-  },
-  {
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6 text-[#fe385c]"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
-    title: "Fast Performance",
-    description: "Optimized for speed with minimal load times and smooth animations for a better user experience.",
+    title: "Local Secrets Revealed",
+    description: "Get personalized recommendations for your trip, including activities, attractions and more.",
   },
   {
     icon: (
@@ -449,12 +441,12 @@ const features = [
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={2}
-          d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
+          d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
         />
       </svg>
     ),
-    title: "Customizable",
-    description: "Easily customize colors, fonts, and layouts to match your brand identity and requirements.",
+    title: "Money Magic Tracker",
+    description: "Set the perfect budget for your trip and make every penny count towards unforgettable experiences.",
   },
   {
     icon: (
@@ -469,12 +461,12 @@ const features = [
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={2}
-          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
         />
       </svg>
     ),
-    title: "Premium Support",
-    description: "Get help when you need it with our dedicated support team and comprehensive documentation.",
+    title: "Memory Time Capsule",
+    description: "Build your personal travel journal and share that with your friends to inspire their next adventure.",
   },
   {
     icon: (
@@ -489,12 +481,32 @@ const features = [
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={2}
-          d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
         />
       </svg>
     ),
-    title: "Regular Updates",
-    description: "Stay up-to-date with regular updates that bring new features and improvements to the template.",
+    title: "Friends Adventure Feed",
+    description: "Follow your friends' journeys and get inspired by their discoveries.",
+  },
+  {
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-6 w-6 text-[#fe385c]"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+        />
+      </svg>
+    ),
+    title: "Group Travel Harmony",
+    description: "Plan incredible trips together with shared itineraries that combine the interests of all group members.",
   },
 ]
 
