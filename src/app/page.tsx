@@ -1,10 +1,116 @@
 import { Image, Link, ChevronRight } from "../components/next-shim"
 import { Button } from "../components/ui/button"
 import Navbar from "../components/navbar"
+import { useState, useEffect } from "react"
+import emailjs from "emailjs-com"
 
 import PlatformDemo from "../components/PlatformDemo"
 
+// Replace these with your actual EmailJS credentials
+const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID"
+const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID"
+const EMAILJS_USER_ID = "YOUR_USER_ID"
+
 export default function Home() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  })
+  const [formErrors, setFormErrors] = useState({
+    name: "",
+    email: "",
+    message: ""
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+
+  // Initialize EmailJS on component mount
+  useEffect(() => {
+    emailjs.init(EMAILJS_USER_ID)
+  }, [])
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }))
+    // Clear error when user types
+    if (formErrors[id as keyof typeof formErrors]) {
+      setFormErrors(prev => ({
+        ...prev,
+        [id]: ""
+      }))
+    }
+  }
+
+  const validateForm = () => {
+    let valid = true
+    const newErrors = {
+      name: "",
+      email: "",
+      message: ""
+    }
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required"
+      valid = false
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required"
+      valid = false
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address"
+      valid = false
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required"
+      valid = false
+    }
+
+    setFormErrors(newErrors)
+    return valid
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!validateForm()) return
+    
+    setIsSubmitting(true)
+    setSubmitStatus("idle")
+    
+    try {
+      // Prepare template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: "voyage.pi.2025@gmail.com"
+      }
+      
+      // Send email using EmailJS
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_USER_ID
+      )
+      
+      // Reset form on success
+      setFormData({ name: "", email: "", message: "" })
+      setSubmitStatus("success")
+    } catch (error) {
+      console.error("Error sending email:", error)
+      setSubmitStatus("error")
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -269,56 +375,103 @@ export default function Home() {
       </div>
 
       {/* Abstract Floating Elements Section */}
-      <section className="py-16 bg-white relative overflow-hidden">
+      <section className="py-32 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Template Designs</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Left column: Text content */}
+            <div>
+              <h1 className="text-4xl font-extrabold mb-1 text-[#2c303b]">LEAVE A MESSAGE</h1>
 
-          <div className="relative min-h-[600px]">
-            {/* Floating abstract elements */}
-            <div className="abstract-element abstract-1"></div>
-            <div className="abstract-element abstract-2"></div>
-            <div className="abstract-element abstract-3"></div>
-            <div className="abstract-element abstract-4"></div>
-
-            {/* Floating template designs */}
-            <div className="floating-print absolute left-[10%] top-[10%] z-30 w-[300px] md:w-[400px] transform rotate-[-3deg]">
-              <Image
-                src="/placeholder.svg?height=300&width=400"
-                alt="Template design"
-                width={400}
-                height={300}
-                className="rounded-lg shadow-xl"
-              />
+              <h3 className="text-xl mb-5 text-[#2c303b]/60">We'd love to hear from you</h3>
+              <p className="text-gray-600 mb-6">
+                Have questions about our platform? Looking for travel recommendations? 
+                Or maybe you have suggestions to make your journey planning experience even better? 
+                We're all ears!
+              </p>
+              <p className="text-gray-600 mb-6">
+                Drop us a message and our team will get back to you as soon as possible.
+              </p>
+              <div className="flex items-center mt-8">
+                <div className="w-12 h-12 bg-[#fe385c]/10 rounded-full flex items-center justify-center mr-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 text-[#fe385c]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <span className="text-[#2c303b]">voyage.pi.2025@gmail.com</span>
+              </div>
             </div>
 
-            <div className="floating-print absolute right-[15%] top-[5%] z-20 w-[250px] md:w-[350px] transform rotate-[5deg]">
-              <Image
-                src="/placeholder.svg?height=300&width=350"
-                alt="Template design"
-                width={350}
-                height={300}
-                className="rounded-lg shadow-xl"
-              />
-            </div>
-
-            <div className="floating-print absolute left-[20%] bottom-[10%] z-10 w-[280px] md:w-[380px] transform rotate-[2deg]">
-              <Image
-                src="/placeholder.svg?height=300&width=380"
-                alt="Template design"
-                width={380}
-                height={300}
-                className="rounded-lg shadow-xl"
-              />
-            </div>
-
-            <div className="floating-print absolute right-[10%] bottom-[15%] z-30 w-[320px] md:w-[420px] transform rotate-[-4deg]">
-              <Image
-                src="/placeholder.svg?height=300&width=420"
-                alt="Template design"
-                width={420}
-                height={300}
-                className="rounded-lg shadow-xl"
-              />
+            {/* Right column: Message form */}
+            <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className={`w-full px-4 py-3 border ${formErrors.name ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-[#fe385c] focus:border-[#fe385c] outline-none`}
+                    placeholder="Your name"
+                  />
+                  {formErrors.name && <p className="mt-1 text-sm text-red-500">{formErrors.name}</p>}
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className={`w-full px-4 py-3 border ${formErrors.email ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-[#fe385c] focus:border-[#fe385c] outline-none`}
+                    placeholder="Your email address"
+                  />
+                  {formErrors.email && <p className="mt-1 text-sm text-red-500">{formErrors.email}</p>}
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                  <textarea
+                    id="message"
+                    rows={5}
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    className={`w-full px-4 py-3 border ${formErrors.message ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-[#fe385c] focus:border-[#fe385c] outline-none resize-none`}
+                    placeholder="Type your message here..."
+                  ></textarea>
+                  {formErrors.message && <p className="mt-1 text-sm text-red-500">{formErrors.message}</p>}
+                </div>
+                
+                {submitStatus === "success" && (
+                  <div className="p-3 bg-green-100 text-green-700 rounded-lg">
+                    Message sent successfully! We'll get back to you soon.
+                  </div>
+                )}
+                
+                {submitStatus === "error" && (
+                  <div className="p-3 bg-red-100 text-red-700 rounded-lg">
+                    Failed to send message. Please try again later.
+                  </div>
+                )}
+                
+                <Button 
+                  type="submit"
+                  disabled={isSubmitting} 
+                  className="w-full bg-[#fe385c] hover:bg-[#e42a4e] text-white py-3 rounded-lg"
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </Button>
+              </form>
             </div>
           </div>
         </div>
