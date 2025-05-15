@@ -467,7 +467,7 @@ export default function Home() {
                 <Button 
                   type="submit"
                   disabled={isSubmitting} 
-                  className="w-full bg-[#fe385c] hover:bg-[#e42a4e] text-white py-3 rounded-lg"
+                  className="w-full bg-[#fe385c] border-2 border-transparent hover:bg-transparent hover:border-2 hover:border-[#fe385c] hover:text-[#fe385c] text-white py-3 rounded-lg"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
@@ -498,10 +498,10 @@ export default function Home() {
 
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#2c303b]">Ready to get started?</h2>
-          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-[#2c303b]">
-            Create your unique website with Lintense in just a few hours
+          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-[#2c303b]">
+            Start planning your dream journey with personalized recommendations today
           </p>
-          <Button className="bg-[#fe385c] hover:bg-[#e42a4e] text-white rounded-full px-8 py-6 text-lg">
+          <Button className="bg-[#fe385c] border-2 border-transparent hover:bg-transparent hover:border-2 hover:border-[#fe385c] hover:text-[#fe385c] text-white rounded-full px-8 py-6 text-lg">
             Purchase Now
           </Button>
         </div>
