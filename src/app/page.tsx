@@ -43,6 +43,7 @@ export default function Home() {
             preserveAspectRatio="none"
           >
             <path
+              className="wave-path wave-path-1"
               fill="rgba(124, 58, 237, 0.1)"
               d="M0,224L48,224C96,224,192,224,288,197.3C384,171,480,117,576,117.3C672,117,768,171,864,197.3C960,224,1056,224,1152,197.3C1248,171,1344,117,1392,90.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             ></path>
@@ -54,6 +55,7 @@ export default function Home() {
             preserveAspectRatio="none"
           >
             <path
+              className="wave-path wave-path-2"
               fill="rgba(6, 182, 212, 0.1)"
               d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,90.7C672,85,768,107,864,117.3C960,128,1056,128,1152,106.7C1248,85,1344,43,1392,21.3L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             ></path>
@@ -81,7 +83,7 @@ export default function Home() {
         </div>
 
         {/* Floating App Prints Display - Scattered like in the reference image */}
-        <div className="relative w-full min-h-[700px] md:min-h-[900px] px-4 pb-12 overflow-hidden">
+        <div className="relative w-full min-h-[350px] md:min-h-[480px] px-4 pb-12 overflow-hidden">
           {/* Central dark website - larger */}
           <div className="floating-print absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/3 z-30 w-[280px] sm:w-[400px] md:w-[500px] shadow-2xl border-4 border-white rounded-xl overflow-hidden">
             <Image
@@ -193,9 +195,10 @@ export default function Home() {
         </div>
 
         {/* Wave divider */}
-        <div className="w-full relative z-10 mt-[-100px]">
+        <div className="w-full relative z-1 mt-[-420px]">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
             <path
+              className="wave-path"
               fill="#ffffff"
               fillOpacity="1"
               d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
@@ -232,6 +235,30 @@ export default function Home() {
         <div className="absolute inset-0 z-0 opacity-10">
           <div className="wave wave4"></div>
           <div className="wave wave5"></div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+            className="absolute top-0 left-0 w-full h-full"
+            preserveAspectRatio="none"
+          >
+            <path
+              className="wave-path wave-path-1"
+              fill="rgba(255, 255, 255, 0.05)"
+              d="M0,224L48,224C96,224,192,224,288,197.3C384,171,480,117,576,117.3C672,117,768,171,864,197.3C960,224,1056,224,1152,197.3C1248,171,1344,117,1392,90.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+            className="absolute bottom-0 left-0 w-full h-full"
+            preserveAspectRatio="none"
+          >
+            <path
+              className="wave-path wave-path-2"
+              fill="rgba(255, 255, 255, 0.05)"
+              d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,90.7C672,85,768,107,864,117.3C960,128,1056,128,1152,106.7C1248,85,1344,43,1392,21.3L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+          </svg>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -325,6 +352,18 @@ export default function Home() {
         {/* Wave Background Elements */}
         <div className="absolute inset-0 z-0 opacity-20">
           <div className="wave wave6"></div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+            className="absolute top-0 left-0 w-full h-full"
+            preserveAspectRatio="none"
+          >
+            <path
+              className="wave-path"
+              fill="rgba(255, 255, 255, 0.05)"
+              d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+          </svg>
         </div>
 
         <div className="container mx-auto px-4 text-center relative z-10">
