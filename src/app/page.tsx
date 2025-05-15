@@ -38,21 +38,16 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
-          <div className="max-w-4xl mx-auto text-center mb-8">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span>linten</span>
-              <span className="text-[#fe385c]">se</span>
-            </h1>
-            <h2 className="text-2xl md:text-4xl font-bold mb-6">
-              is a robust, responsive multi-purpose
-              <br />
-              HTML5 Bootstrap based template
-            </h2>
+          <div className="max-w-5xl mx-auto text-center mb-8">
+            <div className="font-extrabold font-heading leading-tighter tracking-tighter intersect-once intersect-quarter mb-4 md:text-8xl motion-safe:md:intersect:animate-fade text-7xl mx-auto my-16 text-center">
+              Say 
+              <span className="bg-clip-text bg-gradient-to-r from-secondary py-10 text-transparent to-secondary via-primary"> Bon Voyage</span> to Planning
+            </div>
             <p className="text-lg md:text-xl mb-8">
-              A variety of impressive landing pages and dozens of useful features and plugins!
+              A trip made for you. Where your taste shapes the journey.
             </p>
-            <Button className="bg-[#fe385c] hover:bg-[#e42a4e] text-white rounded-full px-8 py-6 text-lg">
-              Discover now
+            <Button className="bg-[#fe385c] border-2 border-transparent hover:bg-transparent hover:border-2 hover:border-[#fe385c] hover:text-[#fe385c] text-white rounded-full px-6 py-4 text-lg">
+              <strong>Get started. It's FREE.</strong>
             </Button>
           </div>
         </div>
@@ -356,12 +351,15 @@ export default function Home() {
       <footer className="bg-[#f0f1f5] text-[#2c303b] py-8">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
-              <h1 className="text-2xl font-bold">
-                <span>linten</span>
-                <span className="text-[#fe385c]">se</span>
-              </h1>
-              <p className="text-gray-500">© 2025 All rights reserved</p>
+            <div className="mb-4 md:mb-0 flex items-center">
+              <Image
+                src="/voyage.png"
+                alt="Voyage Logo"
+                width={40}
+                height={40}
+                className="h-8 w-auto object-contain"
+              />
+              <p className="text-gray-500 ml-3">© 2025 All rights reserved</p>
             </div>
             <div className="flex space-x-6">
               <Link href="#" className="text-gray-500 hover:text-[#2c303b]">
