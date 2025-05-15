@@ -273,16 +273,7 @@ export default function Home() {
         </div>
 
         {/* Wave divider */}
-        <div className="w-full relative z-1 mt-[-420px]">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
-            <path
-              className="wave-path"
-              fill="#ffffff"
-              fillOpacity="1"
-              d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            ></path>
-          </svg>
-        </div>
+        
       </section>
 
       {/* Features Section */}
@@ -308,7 +299,7 @@ export default function Home() {
       </section>
 
       {/* Platform Demo Videos Section with Abstract Background */}
-      <section className="py-28 bg-gradient-to-r from-[#f0f1f5] via-[#f8e4e8] to-[#f0f1f5] relative overflow-hidden min-h-[800px]">
+      <section className="py-28 bg-gradient-to-b from-[#f0f1f5] via-[#f8e4e8] to-[#ffeaef] relative overflow-hidden min-h-[800px]">
         {/* Wavy section divider at the top */}
         <div className="absolute top-0 left-0 w-full overflow-hidden">
           <svg 
@@ -328,33 +319,29 @@ export default function Home() {
         </div>
 
         {/* Wave Background Elements - Enhanced with more pronounced waves */}
-        <div className="absolute inset-0 z-0 opacity-30">
-          {/* New dense wave layers */}
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 1440 640" 
-            className="absolute top-1/3 left-0 w-full h-full"
-            preserveAspectRatio="none"
-          >
-            <path 
-              fill="rgba(254, 56, 92, 0.35)" 
-              fillOpacity="1" 
-              d="M0,32L30,53.3C60,75,120,117,180,122.7C240,128,300,96,360,90.7C420,85,480,107,540,144C600,181,660,235,720,229.3C780,224,840,160,900,149.3C960,139,1020,181,1080,186.7C1140,192,1200,160,1260,160C1320,160,1380,192,1410,208L1440,224L1440,640L1410,640C1380,640,1320,640,1260,640C1200,640,1140,640,1080,640C1020,640,960,640,900,640C840,640,780,640,720,640C660,640,600,640,540,640C480,640,420,640,360,640C300,640,240,640,180,640C120,640,60,640,30,640L0,640Z"
-              className="wave-animation-3"
-            ></path>
-          </svg>
-          
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 1440 640" 
+        <div className="absolute inset-0 z-0">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
             className="absolute top-0 left-0 w-full h-full"
             preserveAspectRatio="none"
           >
-            <path 
-              fill="rgba(254, 56, 92, 0.2)" 
-              fillOpacity="1" 
-              d="M0,320L30,304C60,288,120,256,180,250.7C240,245,300,267,360,266.7C420,267,480,245,540,245.3C600,245,660,267,720,261.3C780,256,840,224,900,213.3C960,203,1020,213,1080,224C1140,235,1200,245,1260,250.7C1320,256,1380,256,1410,256L1440,256L1440,640L1410,640C1380,640,1320,640,1260,640C1200,640,1140,640,1080,640C1020,640,960,640,900,640C840,640,780,640,720,640C660,640,600,640,540,640C480,640,420,640,360,640C300,640,240,640,180,640C120,640,60,640,30,640L0,640Z"
-              className="wave-animation-1"
+            <path
+              className="wave-path wave-path-1"
+              fill="rgba(254, 56, 92, 0.2)"
+              d="M0,224L48,224C96,224,192,224,288,197.3C384,171,480,117,576,117.3C672,117,768,171,864,197.3C960,224,1056,224,1152,197.3C1248,171,1344,117,1392,90.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+            className="absolute bottom-0 left-0 w-full h-full"
+            preserveAspectRatio="none"
+          >
+            <path
+              className="wave-path wave-path-2"
+              fill="rgba(254, 56, 92, 0.15)"
+              d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,90.7C672,85,768,107,864,117.3C960,128,1056,128,1152,106.7C1248,85,1344,43,1392,21.3L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             ></path>
           </svg>
         </div>
@@ -376,6 +363,9 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-48 bg-white relative overflow-hidden">
+        {/* Wave Background Elements */}
+        
+
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-5xl md:text-5xl font-bold mb-6 text-[#2c303b]">Ready to get started?</h2>
           <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-[#2c303b]">

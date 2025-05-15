@@ -25,13 +25,13 @@ export default function Navbar() {
   }, [scrolled]);
   
   return (
-    <header className={`w-full fixed top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg py-0' : 'bg-transparent py-4'}`}>
+    <header className={`w-full fixed top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-xs shadow-lg' : 'bg-transparent py-4'}`}>
       <div className="mx-auto px-4 flex items-center justify-between">
         <div className="flex items-center">
           <Image
             src="/voyage.png"
             alt="Voyage Logo"
-            className="h-28"
+            className="h-20"
           />
         </div>
         <nav className="hidden md:flex items-center space-x-12">
@@ -48,7 +48,7 @@ export default function Navbar() {
             Support
           </Link>
         </nav>
-        <div className="flex items-center space-x-4 pr-12">
+        <div className="flex items-center space-x-4 pr-8">
           <Link href="" className="text-[#2c303b] rounded-full pr-7 font-medium">Login</Link>
           <Button className="bg-[#fe385c] border-2 border-transparent hover:bg-transparent hover:border-2 hover:border-[#fe385c] hover:text-[#fe385c] text-white rounded-full px-6">
             <strong>Sign up</strong>
