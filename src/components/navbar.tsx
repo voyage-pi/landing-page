@@ -25,19 +25,17 @@ export default function Navbar() {
   }, [scrolled]);
   
   return (
-    <header className={`w-full py-4 fixed top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'}`}>
-      <div className="container mx-auto px-4 flex items-center justify-between">
+    <header className={`w-full fixed top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg py-0' : 'bg-transparent py-4'}`}>
+      <div className="mx-auto px-4 flex items-center justify-between">
         <div className="flex items-center">
           <Image
             src="/voyage.png"
             alt="Voyage Logo"
-            width={40}
-            height={40}
-            className="h-20 w-auto object-contain"
+            className="h-28"
           />
         </div>
-        <nav className="hidden md:flex items-center space-x-8">
-          <Link href="#" className="text-[#fe385c] hover:text-[#fe385c]/80">
+        <nav className="hidden md:flex items-center space-x-12">
+          <Link href="#" className="text-[#fe385c] hover:text-[#fe385c]/80 font-medium">
             Layouts
           </Link>
           <Link href="#features" className="text-[#2c303b] hover:text-[#fe385c]">
@@ -50,7 +48,12 @@ export default function Navbar() {
             Support
           </Link>
         </nav>
-        <Button className="bg-[#fe385c] hover:bg-[#e42a4e] text-white rounded-full px-6">Purchase Template</Button>
+        <div className="flex items-center space-x-4 pr-12">
+          <Link href="" className="text-[#2c303b] rounded-full pr-7 font-medium">Login</Link>
+          <Button className="bg-[#fe385c] border-2 border-transparent hover:bg-transparent hover:border-2 hover:border-[#fe385c] hover:text-[#fe385c] text-white rounded-full px-6">
+            <strong>Sign up</strong>
+          </Button>
+        </div>
       </div>
     </header>
   );
