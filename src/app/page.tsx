@@ -286,9 +286,9 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-24 bg-white">
+      <section id="features" className="py-24 bg-white mt-[100px]">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Powerful Features</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">Powerful Features</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
@@ -308,7 +308,7 @@ export default function Home() {
       </section>
 
       {/* Platform Demo Videos Section with Abstract Background */}
-      <section className="py-28 bg-gradient-to-r from-[#f0f1f5] via-[#f8e4e8] to-[#f0f1f5] relative overflow-hidden min-h-[800px]">
+      <section className="py-28 bg-gradient-to-r from-[#f0f1f5] via-[#f8e4e8] to-[#f0f1f5] relative overflow-hidden min-h-[800px] -mt-12">
         {/* Wavy section divider at the top */}
         <div className="absolute top-0 left-0 w-full overflow-hidden">
           <svg 
@@ -360,7 +360,7 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto px-4 relative z-10 my-80">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-24 leading-tight tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-28 leading-tight tracking-tight">
             <span className="bg-clip-text bg-gradient-to-r from-secondary to-secondary via-primary text-transparent">Because your taste deserves</span> more than generic recommendations
           </h2>
           

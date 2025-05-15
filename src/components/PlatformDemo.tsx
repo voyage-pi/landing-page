@@ -56,7 +56,7 @@ const DemoRectangle = ({ color }: { color: string }) => (
       </div>
     </div>
     <div className="p-6 text-center">
-      <p className="text-lg font-medium" style={{ color }}>Interested in our platform? Join us now!</p>
+      <p className="text-lg font-medium hover:underline cursor-pointer" style={{ color }}>Interested in our platform? Join us now!</p>
     </div>
   </div>
 );
