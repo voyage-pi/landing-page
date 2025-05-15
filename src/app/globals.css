@@ -81,52 +81,25 @@ html {
 
 /* Floating animation for app prints */
 .floating-print {
-  animation: float 8s ease-in-out infinite;
-  transition: all 0.5s ease-out;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  border: 4px solid white;
-  border-radius: 8px;
-  background-color: white;
-  will-change: transform;
+  animation: float 6s ease-in-out infinite;
+  transition: transform 0.3s ease-out;
 }
 
 .floating-print:hover {
-  transform: translateY(-10px) scale(1.05) !important;
-  z-index: 50 !important;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-10px) scale(1.03);
+  z-index: 40;
 }
 
 @keyframes float {
   0% {
-    transform: translateY(0px) translateX(0px) rotate(var(--rotation, 0deg));
+    transform: translateY(0px) rotate(var(--rotation, 0deg));
   }
   50% {
-    transform: translateY(-15px) translateX(5px) rotate(var(--rotation, 0deg));
+    transform: translateY(-15px) rotate(var(--rotation, 0deg));
   }
   100% {
-    transform: translateY(0px) translateX(0px) rotate(var(--rotation, 0deg));
+    transform: translateY(0px) rotate(var(--rotation, 0deg));
   }
-}
-
-/* Make prints with different animation timings */
-.floating-print:nth-child(2n) {
-  animation-duration: 9s;
-  animation-delay: 0.5s;
-}
-
-.floating-print:nth-child(3n) {
-  animation-duration: 7s;
-  animation-delay: 0.2s;
-}
-
-.floating-print:nth-child(3n+1) {
-  animation-duration: 10s;
-  animation-delay: 0.7s;
-}
-
-.floating-print:nth-child(5n) {
-  animation-duration: 11s;
-  animation-delay: 0.3s;
 }
 
 /* Wave animations for background */
@@ -272,4 +245,4 @@ html {
   100% {
     transform: translateX(30px) translateY(30px);
   }
-}
+} 
