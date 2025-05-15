@@ -13,16 +13,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 349 99% 61%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 222 13% 20%;
+    --secondary-foreground: 210 40% 98%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 349 99% 61%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -30,22 +30,22 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 349 99% 61%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 222 13% 20%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 222 13% 20%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: 222 13% 20%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
+    --primary: 349 99% 61%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -54,7 +54,7 @@
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 349 99% 61%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -62,7 +62,7 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --ring: 349 99% 61%;
   }
 }
 
@@ -134,37 +134,37 @@ html {
   position: absolute;
   width: 100%;
   height: 100%;
-  opacity: 0.3;
+  opacity: 0.25;
   background-size: cover;
 }
 
 .wave1 {
-  background: radial-gradient(circle at 30% 40%, rgba(76, 29, 149, 0.8) 0%, rgba(30, 58, 138, 0) 70%);
+  background: radial-gradient(circle at 30% 40%, rgba(254, 56, 92, 0.6) 0%, rgba(240, 241, 245, 0) 70%);
   animation: wave-move 40s ease-in-out infinite alternate;
 }
 
 .wave2 {
-  background: radial-gradient(circle at 70% 60%, rgba(124, 58, 237, 0.8) 0%, rgba(30, 58, 138, 0) 70%);
+  background: radial-gradient(circle at 70% 60%, rgba(254, 56, 92, 0.55) 0%, rgba(240, 241, 245, 0) 70%);
   animation: wave-move 45s ease-in-out infinite alternate-reverse;
 }
 
 .wave3 {
-  background: radial-gradient(circle at 50% 20%, rgba(6, 182, 212, 0.8) 0%, rgba(30, 58, 138, 0) 70%);
+  background: radial-gradient(circle at 50% 20%, rgba(254, 56, 92, 0.65) 0%, rgba(240, 241, 245, 0) 70%);
   animation: wave-move 50s ease-in-out infinite alternate;
 }
 
 .wave4 {
-  background: radial-gradient(circle at 20% 30%, rgba(76, 29, 149, 0.8) 0%, rgba(30, 58, 138, 0) 70%);
+  background: radial-gradient(circle at 20% 30%, rgba(254, 56, 92, 0.6) 0%, rgba(240, 241, 245, 0) 70%);
   animation: wave-move 42s ease-in-out infinite alternate-reverse;
 }
 
 .wave5 {
-  background: radial-gradient(circle at 80% 70%, rgba(124, 58, 237, 0.8) 0%, rgba(30, 58, 138, 0) 70%);
+  background: radial-gradient(circle at 80% 70%, rgba(254, 56, 92, 0.55) 0%, rgba(240, 241, 245, 0) 70%);
   animation: wave-move 48s ease-in-out infinite alternate;
 }
 
 .wave6 {
-  background: radial-gradient(circle at 40% 50%, rgba(6, 182, 212, 0.8) 0%, rgba(30, 58, 138, 0) 70%);
+  background: radial-gradient(circle at 40% 50%, rgba(254, 56, 92, 0.45) 0%, rgba(240, 241, 245, 0) 70%);
   animation: wave-move 44s ease-in-out infinite alternate-reverse;
 }
 
@@ -273,7 +273,7 @@ html {
 .abstract-1 {
   width: 300px;
   height: 300px;
-  background: linear-gradient(45deg, #4c1d95, #06b6d4);
+  background: linear-gradient(45deg, #2c303b, #fe385c);
   top: 10%;
   left: 10%;
   animation-delay: 0s;
@@ -282,7 +282,7 @@ html {
 .abstract-2 {
   width: 250px;
   height: 250px;
-  background: linear-gradient(45deg, #7c3aed, #3b82f6);
+  background: linear-gradient(45deg, #fe385c, #2c303b);
   top: 20%;
   right: 15%;
   animation-delay: 2s;
@@ -291,7 +291,7 @@ html {
 .abstract-3 {
   width: 200px;
   height: 200px;
-  background: linear-gradient(45deg, #06b6d4, #4c1d95);
+  background: linear-gradient(45deg, #fe385c, #2c303b);
   bottom: 15%;
   left: 20%;
   animation-delay: 4s;
@@ -300,7 +300,7 @@ html {
 .abstract-4 {
   width: 350px;
   height: 350px;
-  background: linear-gradient(45deg, #3b82f6, #7c3aed);
+  background: linear-gradient(45deg, #2c303b, #fe385c);
   bottom: 10%;
   right: 10%;
   animation-delay: 6s;

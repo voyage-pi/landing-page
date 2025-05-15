@@ -10,11 +10,11 @@ export function initNavbarScroll(): void {
 
   function handleScroll(): void {
     if (window.scrollY > 10) {
-      headerElement.classList.add('bg-slate-900/95', 'backdrop-blur-sm', 'shadow-lg');
+      headerElement.classList.add('bg-white/95', 'backdrop-blur-sm', 'shadow-lg');
       headerElement.classList.remove('bg-transparent');
     } else {
       headerElement.classList.add('bg-transparent');
-      headerElement.classList.remove('bg-slate-900/95', 'backdrop-blur-sm', 'shadow-lg');
+      headerElement.classList.remove('bg-white/95', 'backdrop-blur-sm', 'shadow-lg');
     }
   }
 

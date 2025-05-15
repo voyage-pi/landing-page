@@ -8,7 +8,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section with Floating App Prints */}
-      <section className="pt-24 flex-grow bg-gradient-to-b from-purple-900 via-purple-800 to-blue-700 text-white relative overflow-hidden">
+      <section className="pt-24 flex-grow bg-gradient-to-b from-[#f0f1f5] via-[#f8e4e8] to-[#ffeaef] text-[#2c303b] relative overflow-hidden">
         {/* Wave Background */}
         <div className="absolute inset-0 z-0">
           <svg
@@ -19,7 +19,7 @@ export default function Home() {
           >
             <path
               className="wave-path wave-path-1"
-              fill="rgba(124, 58, 237, 0.1)"
+              fill="rgba(254, 56, 92, 0.2)"
               d="M0,224L48,224C96,224,192,224,288,197.3C384,171,480,117,576,117.3C672,117,768,171,864,197.3C960,224,1056,224,1152,197.3C1248,171,1344,117,1392,90.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             ></path>
           </svg>
@@ -31,7 +31,7 @@ export default function Home() {
           >
             <path
               className="wave-path wave-path-2"
-              fill="rgba(6, 182, 212, 0.1)"
+              fill="rgba(254, 56, 92, 0.15)"
               d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,90.7C672,85,768,107,864,117.3C960,128,1056,128,1152,106.7C1248,85,1344,43,1392,21.3L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             ></path>
           </svg>
@@ -41,7 +41,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto text-center mb-8">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               <span>linten</span>
-              <span className="text-cyan-400">se</span>
+              <span className="text-[#fe385c]">se</span>
             </h1>
             <h2 className="text-2xl md:text-4xl font-bold mb-6">
               is a robust, responsive multi-purpose
@@ -51,7 +51,7 @@ export default function Home() {
             <p className="text-lg md:text-xl mb-8">
               A variety of impressive landing pages and dozens of useful features and plugins!
             </p>
-            <Button className="bg-cyan-500 hover:bg-cyan-600 text-white rounded-full px-8 py-6 text-lg">
+            <Button className="bg-[#fe385c] hover:bg-[#e42a4e] text-white rounded-full px-8 py-6 text-lg">
               Discover now
             </Button>
           </div>
@@ -193,7 +193,7 @@ export default function Home() {
                 key={index}
                 className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-[#fe385c]/10 rounded-full flex items-center justify-center mb-4">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
@@ -205,9 +205,9 @@ export default function Home() {
       </section>
 
       {/* App Prints Section with Abstract Background */}
-      <section className="py-16 bg-gradient-to-r from-blue-900 via-purple-800 to-blue-900 relative overflow-hidden">
+      <section className="py-16 bg-gradient-to-r from-[#f0f1f5] via-[#f8e4e8] to-[#f0f1f5] relative overflow-hidden">
         {/* Wave Background Elements */}
-        <div className="absolute inset-0 z-0 opacity-10">
+        <div className="absolute inset-0 z-0 opacity-20">
           <div className="wave wave4"></div>
           <div className="wave wave5"></div>
           <svg
@@ -218,7 +218,7 @@ export default function Home() {
           >
             <path
               className="wave-path wave-path-1"
-              fill="rgba(255, 255, 255, 0.05)"
+              fill="rgba(254, 56, 92, 0.2)"
               d="M0,224L48,224C96,224,192,224,288,197.3C384,171,480,117,576,117.3C672,117,768,171,864,197.3C960,224,1056,224,1152,197.3C1248,171,1344,117,1392,90.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             ></path>
           </svg>
@@ -230,20 +230,20 @@ export default function Home() {
           >
             <path
               className="wave-path wave-path-2"
-              fill="rgba(255, 255, 255, 0.05)"
+              fill="rgba(254, 56, 92, 0.15)"
               d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,90.7C672,85,768,107,864,117.3C960,128,1056,128,1152,106.7C1248,85,1344,43,1392,21.3L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             ></path>
           </svg>
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white">App Prints</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#2c303b]">App Prints</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {appPrints.map((print, index) => (
               <div
                 key={index}
-                className="bg-white/10 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group"
+                className="bg-white/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group"
               >
                 <div className="h-48 bg-gray-200 relative overflow-hidden">
                   <Image
@@ -253,10 +253,10 @@ export default function Home() {
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
-                <div className="p-6 text-white">
+                <div className="p-6 text-[#2c303b]">
                   <h3 className="text-xl font-semibold mb-2">{print.title}</h3>
-                  <p className="text-gray-200 mb-4">{print.description}</p>
-                  <Link href="#" className="text-cyan-300 hover:text-cyan-100 font-medium inline-flex items-center">
+                  <p className="text-gray-600 mb-4">{print.description}</p>
+                  <Link href="#" className="text-[#fe385c] hover:text-[#fe385c]/80 font-medium inline-flex items-center">
                     Learn more <ChevronRight className="w-4 h-4 ml-1" />
                   </Link>
                 </div>
@@ -323,9 +323,9 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-purple-900 to-blue-800 text-white relative overflow-hidden">
+      <section className="py-16 bg-gradient-to-r from-[#ffeaef] to-[#ffcbd5] relative overflow-hidden">
         {/* Wave Background Elements */}
-        <div className="absolute inset-0 z-0 opacity-20">
+        <div className="absolute inset-0 z-0 opacity-30">
           <div className="wave wave6"></div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -335,42 +335,42 @@ export default function Home() {
           >
             <path
               className="wave-path"
-              fill="rgba(255, 255, 255, 0.05)"
+              fill="rgba(254, 56, 92, 0.2)"
               d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             ></path>
           </svg>
         </div>
 
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to get started?</h2>
-          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#2c303b]">Ready to get started?</h2>
+          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-[#2c303b]">
             Create your unique website with Lintense in just a few hours
           </p>
-          <Button className="bg-cyan-500 hover:bg-cyan-600 text-white rounded-full px-8 py-6 text-lg">
+          <Button className="bg-[#fe385c] hover:bg-[#e42a4e] text-white rounded-full px-8 py-6 text-lg">
             Purchase Now
           </Button>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-white py-8">
+      <footer className="bg-[#f0f1f5] text-[#2c303b] py-8">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <h1 className="text-2xl font-bold">
                 <span>linten</span>
-                <span className="text-cyan-400">se</span>
+                <span className="text-[#fe385c]">se</span>
               </h1>
-              <p className="text-gray-400">© 2025 All rights reserved</p>
+              <p className="text-gray-500">© 2025 All rights reserved</p>
             </div>
             <div className="flex space-x-6">
-              <Link href="#" className="text-gray-400 hover:text-white">
+              <Link href="#" className="text-gray-500 hover:text-[#2c303b]">
                 Privacy Policy
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-white">
+              <Link href="#" className="text-gray-500 hover:text-[#2c303b]">
                 Terms of Service
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-white">
+              <Link href="#" className="text-gray-500 hover:text-[#2c303b]">
                 Contact Us
               </Link>
             </div>
@@ -387,7 +387,7 @@ const features = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6 text-cyan-500"
+        className="h-6 w-6 text-[#fe385c]"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -407,7 +407,7 @@ const features = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6 text-cyan-500"
+        className="h-6 w-6 text-[#fe385c]"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -427,7 +427,7 @@ const features = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6 text-cyan-500"
+        className="h-6 w-6 text-[#fe385c]"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -442,7 +442,7 @@ const features = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6 text-cyan-500"
+        className="h-6 w-6 text-[#fe385c]"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -462,7 +462,7 @@ const features = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6 text-cyan-500"
+        className="h-6 w-6 text-[#fe385c]"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -482,7 +482,7 @@ const features = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6 text-cyan-500"
+        className="h-6 w-6 text-[#fe385c]"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
