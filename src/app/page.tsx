@@ -1,36 +1,11 @@
 import { Image, Link, ChevronRight } from "../components/next-shim"
 import { Button } from "../components/ui/button"
+import Navbar from "../components/navbar"
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Navigation */}
-      <header className="w-full bg-slate-900 py-4 fixed top-0 z-50">
-        <div className="container mx-auto px-4 flex items-center justify-between">
-          <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-white">
-              <span>linten</span>
-              <span className="text-cyan-400">se</span>
-            </h1>
-            <span className="text-gray-400 text-xs ml-2 mt-2">LANDING PAGE TEMPLATE</span>
-          </div>
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="#" className="text-cyan-400 hover:text-cyan-300">
-              Layouts
-            </Link>
-            <Link href="#features" className="text-white hover:text-cyan-300">
-              Features
-            </Link>
-            <Link href="#" className="text-white hover:text-cyan-300">
-              Updates
-            </Link>
-            <Link href="#" className="text-white hover:text-cyan-300">
-              Support
-            </Link>
-          </nav>
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-6">Purchase Template</Button>
-        </div>
-      </header>
+      <Navbar />
 
       {/* Hero Section with Floating App Prints */}
       <section className="pt-24 flex-grow bg-gradient-to-b from-purple-900 via-purple-800 to-blue-700 text-white relative overflow-hidden">
