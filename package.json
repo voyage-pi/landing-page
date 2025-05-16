@@ -10,15 +10,23 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.9.0",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
     "emailjs-com": "^3.2.0",
+    "express": "^5.1.0",
     "lucide-react": "^0.331.0",
+    "next": "^15.3.2",
     "next-themes": "^0.3.0",
+    "node-fetch": "^2.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
+    "@types/node": "^22.15.18",
+    "@types/node-fetch": "^2.6.12",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "@vitejs/plugin-react": "^4.4.1",

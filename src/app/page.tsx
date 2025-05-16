@@ -2,14 +2,8 @@ import { Image, Link, ChevronRight } from "../components/next-shim"
 import { Button } from "../components/ui/button"
 import Navbar from "../components/navbar"
 import { useState, useEffect } from "react"
-import emailjs from "emailjs-com"
 
 import PlatformDemo from "../components/PlatformDemo"
-
-// Replace these with your actual EmailJS credentials
-const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID"
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID"
-const EMAILJS_USER_ID = "YOUR_USER_ID"
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -24,11 +18,6 @@ export default function Home() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
-
-  // Initialize EmailJS on component mount
-  useEffect(() => {
-    emailjs.init(EMAILJS_USER_ID)
-  }, [])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target
@@ -84,27 +73,28 @@ export default function Home() {
     setSubmitStatus("idle")
     
     try {
-      // Prepare template parameters
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        message: formData.message,
-        to_email: "voyage.pi.2025@gmail.com"
+      // Send form data to Formspree
+      const response = await fetch("https://formspree.io/f/xrbqjkoa", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      })
+      
+      if (response.ok) {
+        // Reset form on success
+        setFormData({ name: "", email: "", message: "" })
+        setSubmitStatus("success")
+      } else {
+        throw new Error("Failed to submit form")
       }
-      
-      // Send email using EmailJS
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        templateParams,
-        EMAILJS_USER_ID
-      )
-      
-      // Reset form on success
-      setFormData({ name: "", email: "", message: "" })
-      setSubmitStatus("success")
     } catch (error) {
-      console.error("Error sending email:", error)
+      console.error("Error sending message:", error)
       setSubmitStatus("error")
     } finally {
       setIsSubmitting(false)
