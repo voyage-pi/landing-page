@@ -37,29 +37,44 @@ const features = [
 ];
 
 // Replacing the detailed demo components with simple rectangles
-const DemoRectangle = ({ color }: { color: string }) => (
-  <div className="bg-white/90 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
-    <div className="flex-grow relative">
-      <div 
-        className="w-full h-full flex items-center justify-center transition-all duration-500 rounded-t-xl"
-        style={{ backgroundColor: `${color}30` }}
-      >
+const DemoRectangle = ({ color }: { color: string }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
+  return (
+    <div className="bg-white/90 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+      <div className="flex-grow relative">
         <div 
-          className="w-20 h-20 rounded-full shadow-lg flex items-center justify-center transition-all duration-500"
-          style={{ backgroundColor: color }}
+          className="w-full h-full flex items-center justify-center transition-all duration-500 rounded-t-xl"
+          style={{ backgroundColor: `${color}30` }}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
+          <div 
+            className="w-20 h-20 rounded-full shadow-lg flex items-center justify-center transition-all duration-500"
+            style={{ backgroundColor: color }}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
         </div>
       </div>
+      <div 
+        className={`p-6 text-center cursor-pointer transition-all duration-300 ${isHovered ? 'rounded-b-xl' : 'rounded-xl'}`}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        style={{ 
+          backgroundColor: isHovered ? color : 'transparent'
+        }}
+      >
+        <p className="text-lg font-medium transition-colors duration-300" style={{ 
+          color: isHovered ? 'white' : color 
+        }}>
+          Interested in our platform? Join us now!
+        </p>
+      </div>
     </div>
-    <div className="p-6 text-center">
-      <p className="text-lg font-medium hover:underline cursor-pointer" style={{ color }}>Interested in our platform? Join us now!</p>
-    </div>
-  </div>
-);
+  );
+};
 
 // Main component
 export default function PlatformDemo() {
