@@ -35,17 +35,14 @@ export default function Navbar() {
           />
         </div>
         <nav className="hidden md:flex items-center space-x-12">
-          <Link href="#" className="text-[#fe385c] hover:text-[#fe385c]/80 font-medium">
-            Layouts
+          <Link href="#toolkit" className="text-[#2c303b] hover:text-[#fe385c]/80 font-medium">
+            Trip Toolkit
           </Link>
           <Link href="#features" className="text-[#2c303b] hover:text-[#fe385c]">
             Features
           </Link>
-          <Link href="#" className="text-[#2c303b] hover:text-[#fe385c]">
-            Updates
-          </Link>
-          <Link href="#" className="text-[#2c303b] hover:text-[#fe385c]">
-            Support
+          <Link href="#contact" className="text-[#2c303b] hover:text-[#fe385c]">
+            Contact Us  
           </Link>
         </nav>
         <div className="flex items-center space-x-4 pr-8">

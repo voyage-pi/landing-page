@@ -286,7 +286,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-24 bg-white mt-[70px]">
+      <section id="toolkit" className="py-24 bg-white mt-[70px]">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-24">
             <h2 className="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight">
@@ -332,7 +332,7 @@ export default function Home() {
         </div>
 
         {/* Wave Background Elements - Enhanced with more pronounced waves */}
-        <div className="absolute inset-0 z-0 opacity-30">
+        <div className="absolute inset-0 z-0 opacity-30" id="features">
           {/* New dense wave layers */}
           
           <svg 
@@ -413,7 +413,7 @@ export default function Home() {
       </section>
 
       {/* Abstract Floating Elements Section */}
-      <section className="py-32 bg-white relative overflow-hidden">
+      <section id="contact" className="py-32 bg-white relative overflow-hidden">
         {/* Remove wave background elements */}
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -616,7 +616,7 @@ const features = [
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={2}
-          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h14a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
         />
       </svg>
     ),
