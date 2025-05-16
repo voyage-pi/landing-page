@@ -28,11 +28,13 @@ export default function Navbar() {
     <header className={`w-full fixed top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-xs shadow-lg' : 'bg-transparent py-4'}`}>
       <div className="mx-auto px-4 flex items-center justify-between">
         <div className="flex items-center">
-          <Image
-            src="/voyage.png"
-            alt="Voyage Logo"
-            className="h-20"
-          />
+          <Link href="#">
+            <Image
+              src="/voyage.png"
+              alt="Voyage Logo"
+              className="h-20"
+            />
+          </Link>
         </div>
         <nav className="hidden md:flex items-center space-x-12">
           <Link href="#toolkit" className="text-[#2c303b] hover:text-[#fe385c]/80 font-medium">
