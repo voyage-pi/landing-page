@@ -331,7 +331,6 @@ export default function Home() {
         <div className="absolute inset-0 z-0 opacity-30">
           {/* New dense wave layers */}
           
-          
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 0 1440 640" 
@@ -342,9 +341,12 @@ export default function Home() {
               fill="rgba(254, 56, 92, 0.2)" 
               fillOpacity="1" 
               d="M0,320L30,304C60,288,120,256,180,250.7C240,245,300,267,360,266.7C420,267,480,245,540,245.3C600,245,660,267,720,261.3C780,256,840,224,900,213.3C960,203,1020,213,1080,224C1140,235,1200,245,1260,250.7C1320,256,1380,256,1410,256L1440,256L1440,384L1410,405.3C1380,427,1320,469,1260,474.7C1200,480,1140,448,1080,442.7C1020,437,960,459,900,448C840,437,780,395,720,389.3C660,384,600,416,540,432C480,448,420,448,360,426.7C300,405,240,363,180,352C120,341,60,363,30,373.3L0,384Z"
-              className="wave-animation-1"
+              className="wave-animation-1 animate-wave-slow"
             ></path>
           </svg>
+          
+          {/* Add another wave with different timing */}
+          
         </div>
 
         <div className="container mx-auto px-4 relative z-10 my-80">
@@ -369,7 +371,7 @@ export default function Home() {
               fill="#ffffff" 
               fillOpacity="1" 
               d="M0,64L60,58.7C120,53,240,43,360,74.7C480,107,600,181,720,186.7C840,192,960,128,1080,112C1200,96,1320,128,1380,144L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
-              className="wave-path-bottom"
+              className="wave-path-bottom animate-wave-fast"
             ></path>
           </svg>
         </div>

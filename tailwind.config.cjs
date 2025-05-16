@@ -81,10 +81,22 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "wave-slow": {
+          "0%": { transform: "translateX(0) translateY(0)" },
+          "50%": { transform: "translateX(-15px) translateY(-5px)" },
+          "100%": { transform: "translateX(0) translateY(0)" },
+        },
+        "wave-fast": {
+          "0%": { transform: "translateX(0) translateY(0)" },
+          "50%": { transform: "translateX(10px) translateY(5px)" },
+          "100%": { transform: "translateX(0) translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "wave-slow": "wave-slow 8s ease-in-out infinite",
+        "wave-fast": "wave-fast 6s ease-in-out infinite",
       },
     },
   },
