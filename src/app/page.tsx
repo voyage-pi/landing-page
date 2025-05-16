@@ -286,9 +286,13 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-24 bg-white mt-[100px]">
+      <section id="features" className="py-24 bg-white mt-[70px]">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">Powerful Features</h2>
+          <div className="max-w-4xl mx-auto text-center mb-24">
+            <h2 className="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight">
+              Your Perfect Trip Toolkit
+            </h2>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
