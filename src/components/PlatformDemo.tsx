@@ -10,28 +10,28 @@ const features = [
     id: "organize",
     title: "Keep everything in one place",
     description: "Organize your travel itineraries, bookings and routes. Add accommodation, activities and transport to each destination.",
-    color: "#1ce3bb",
+    color: "#ff4967",
     textColor: "white"
   },
   {
     id: "group",
     title: "Supercharge group travel planning",
     description: "Plan the perfect group trip with your friends and family. Create collaborative itineraries, share ideas and make decisions together.",
-    color: "#6c5ce7",
+    color: "#f8789d",
     textColor: "white"
   },
   {
     id: "share",
     title: "Share your adventures with friends & family",
     description: "Create travel journals and share them with your friends - or keep them to yourself. Upload your travel photos and generate travel reels.",
-    color: "#ff9d00",
+    color: "#ff9d7a",
     textColor: "white"
   },
   {
     id: "discover",
     title: "Discover expert travel tips and itineraries",
     description: "Discover insider travel tips, copy itineraries from travel experts and personalize them to your needs.",
-    color: "#fe385c",
+    color: "#da8bb6",
     textColor: "white"
   }
 ];
