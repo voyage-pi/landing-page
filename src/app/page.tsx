@@ -330,19 +330,7 @@ export default function Home() {
         {/* Wave Background Elements - Enhanced with more pronounced waves */}
         <div className="absolute inset-0 z-0 opacity-30">
           {/* New dense wave layers */}
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 1440 640" 
-            className="absolute top-1/3 left-0 w-full h-full"
-            preserveAspectRatio="none"
-          >
-            <path 
-              fill="rgba(254, 56, 92, 0.35)" 
-              fillOpacity="1" 
-              d="M0,32L30,53.3C60,75,120,117,180,122.7C240,128,300,96,360,90.7C420,85,480,107,540,144C600,181,660,235,720,229.3C780,224,840,160,900,149.3C960,139,1020,181,1080,186.7C1140,192,1200,160,1260,160C1320,160,1380,192,1410,208L1440,224L1440,640L1410,640C1380,640,1320,640,1260,640C1200,640,1140,640,1080,640C1020,640,960,640,900,640C840,640,780,640,720,640C660,640,600,640,540,640C480,640,420,640,360,640C300,640,240,640,180,640C120,640,60,640,30,640L0,640Z"
-              className="wave-animation-3"
-            ></path>
-          </svg>
+          
           
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
@@ -353,7 +341,7 @@ export default function Home() {
             <path 
               fill="rgba(254, 56, 92, 0.2)" 
               fillOpacity="1" 
-              d="M0,320L30,304C60,288,120,256,180,250.7C240,245,300,267,360,266.7C420,267,480,245,540,245.3C600,245,660,267,720,261.3C780,256,840,224,900,213.3C960,203,1020,213,1080,224C1140,235,1200,245,1260,250.7C1320,256,1380,256,1410,256L1440,256L1440,640L1410,640C1380,640,1320,640,1260,640C1200,640,1140,640,1080,640C1020,640,960,640,900,640C840,640,780,640,720,640C660,640,600,640,540,640C480,640,420,640,360,640C300,640,240,640,180,640C120,640,60,640,30,640L0,640Z"
+              d="M0,320L30,304C60,288,120,256,180,250.7C240,245,300,267,360,266.7C420,267,480,245,540,245.3C600,245,660,267,720,261.3C780,256,840,224,900,213.3C960,203,1020,213,1080,224C1140,235,1200,245,1260,250.7C1320,256,1380,256,1410,256L1440,256L1440,384L1410,405.3C1380,427,1320,469,1260,474.7C1200,480,1140,448,1080,442.7C1020,437,960,459,900,448C840,437,780,395,720,389.3C660,384,600,416,540,432C480,448,420,448,360,426.7C300,405,240,363,180,352C120,341,60,363,30,373.3L0,384Z"
               className="wave-animation-1"
             ></path>
           </svg>
@@ -367,6 +355,24 @@ export default function Home() {
           <PlatformDemo />
           
         </div>
+        
+        {/* Wavy section divider at the bottom */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 1440 320" 
+            className="w-full"
+            preserveAspectRatio="none"
+            style={{ marginBottom: '-2px' }}
+          >
+            <path 
+              fill="#ffffff" 
+              fillOpacity="1" 
+              d="M0,64L60,58.7C120,53,240,43,360,74.7C480,107,600,181,720,186.7C840,192,960,128,1080,112C1200,96,1320,128,1380,144L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+              className="wave-path-bottom"
+            ></path>
+          </svg>
+        </div>
       </section>
 
       {/* Wave divider between sections */}
@@ -375,7 +381,7 @@ export default function Home() {
       </div>
 
       {/* CTA Section */}
-      <section className="py-48 bg-white relative overflow-hidden">
+      <section className="my-64 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-5xl md:text-5xl font-bold mb-6 text-[#2c303b]">Ready to get started?</h2>
           <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-[#2c303b]">
