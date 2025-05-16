@@ -176,7 +176,7 @@ export default function Home() {
           {/* Top left print */}
           <div className="floating-print absolute left-[12%] top-[15%] z-20 w-[220px] md:w-[290px] shadow-xl border-4 border-white rounded-lg overflow-hidden" style={{zIndex: 5, transform: 'rotate(-2deg)'}}>
             <Image
-              src="/screenshots/sh1.png"
+              src="/screenshots/sh8.png"
               alt="Website screenshot"
               width={290}
               height={180}
@@ -187,7 +187,7 @@ export default function Home() {
           {/* Top right print */}
           <div className="floating-print absolute right-[20%] top-[10%] z-20 w-[210px] md:w-[270px] shadow-xl border-4 border-white rounded-lg overflow-hidden" style={{zIndex: 6, transform: 'rotate(3deg)'}}>
             <Image
-              src="/templates/blue-template.svg"
+              src="/screenshots/sh6.png"
               alt="Website mockup"
               width={270}
               height={170}
@@ -198,7 +198,7 @@ export default function Home() {
           {/* Mid left print */}
           <div className="floating-print absolute left-[5%] top-[45%] z-10 w-[190px] md:w-[250px] shadow-xl border-4 border-white rounded-lg overflow-hidden" style={{zIndex: 4, transform: 'rotate(-4deg)'}}>
             <Image
-              src="/templates/purple-template.svg"
+              src="/screenshots/sh7.png"
               alt="Website mockup"
               width={250}
               height={160}
@@ -209,7 +209,7 @@ export default function Home() {
           {/* Mid right print */}
           <div className="floating-print absolute right-[10%] top-[45%] z-10 w-[230px] md:w-[300px] shadow-xl border-4 border-white rounded-lg overflow-hidden" style={{zIndex: 3, transform: 'rotate(4deg)'}}>
             <Image
-              src="/screenshots/sh2.png"
+              src="/screenshots/sh10.png"
               alt="Website screenshot"
               width={300}
               height={180}
@@ -220,7 +220,7 @@ export default function Home() {
           {/* Bottom left print */}
           <div className="floating-print absolute left-[25%] bottom-[10%] z-20 w-[200px] md:w-[280px] shadow-xl border-4 border-white rounded-lg overflow-hidden" style={{zIndex: 7, transform: 'rotate(1deg)'}}>
             <Image
-              src="/templates/blue-template.svg"
+              src="/screenshots/sh2.png"
               alt="Website mockup"
               width={280}
               height={170}
@@ -242,7 +242,7 @@ export default function Home() {
           {/* Extra prints for fuller appearance */}
           <div className="floating-print absolute left-[35%] top-[15%] z-10 w-[160px] md:w-[220px] shadow-xl border-4 border-white rounded-lg overflow-hidden" style={{zIndex: 2, transform: 'rotate(-5deg)'}}>
             <Image
-              src="/screenshots/sh4.png"
+              src="/screenshots/sh9.png"
               alt="Website screenshot"
               width={220}
               height={140}
@@ -252,7 +252,7 @@ export default function Home() {
           
           <div className="floating-print absolute right-[30%] top-[25%] z-10 w-[170px] md:w-[240px] shadow-xl border-4 border-white rounded-lg overflow-hidden" style={{zIndex: 1, transform: 'rotate(5deg)'}}>
             <Image
-              src="/screenshots/sh5.png"
+              src="/screenshots/sh1.png"
               alt="Website screenshot"
               width={240}
               height={150}
