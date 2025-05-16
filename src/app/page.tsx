@@ -517,7 +517,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-white text-[#2c303b] py-8">
+      <footer className="bg-white text-[#2c303b] py-8 border-t border-gray-100">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0 flex items-center">
@@ -526,19 +526,12 @@ export default function Home() {
                 alt="Voyage Logo"
                 width={40}
                 height={40}
-                className="h-8 w-auto object-contain"
+                className="h-12 w-auto"
               />
-              <p className="text-gray-500 ml-3">© 2025 All rights reserved</p>
             </div>
             <div className="flex space-x-6">
               <Link href="#" className="text-gray-500 hover:text-[#2c303b]">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="text-gray-500 hover:text-[#2c303b]">
-                Terms of Service
-              </Link>
-              <Link href="#" className="text-gray-500 hover:text-[#2c303b]">
-                Contact Us
+                Join us now!
               </Link>
             </div>
           </div>
