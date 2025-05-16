@@ -383,15 +383,25 @@ export default function Home() {
       </div>
 
       {/* CTA Section */}
-      <section className="my-64 bg-white relative overflow-hidden">
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-5xl md:text-5xl font-bold mb-6 text-[#2c303b]">Ready to get started?</h2>
-          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto text-[#2c303b]">
-            Start planning your dream journey with personalized recommendations today
-          </p>
-          <Button className="bg-[#fe385c] border-2 border-transparent hover:bg-transparent hover:border-2 hover:border-[#fe385c] hover:text-[#fe385c] text-white rounded-full px-8 py-4 text-lg">
-            <strong>Start your travel adventure</strong>
-          </Button>
+      <section className="my-10 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-6xl mx-auto bg-gradient-to-r from-[#fff] to-[#f8f9fc] rounded-2xl shadow-sm border border-gray-100 overflow-hidden transform transition-all duration-300">
+            <div className="relative p-12 md:p-16">
+              {/* Decorative elements */}
+              <div className="absolute top-0 right-0 -mt-8 -mr-8 w-40 h-40 rounded-full bg-[#fe385c]/5"></div>
+              <div className="absolute bottom-0 left-0 -mb-8 -ml-8 w-32 h-32 rounded-full bg-[#fe385c]/5"></div>
+              
+              <div className="relative text-center">
+                <h2 className="text-5xl md:text-5xl font-bold mb-6 text-[#2c303b]">Ready to get started?</h2>
+                <p className="text-lg md:text-xl mb-10 max-w-3xl mx-auto text-[#2c303b]/80">
+                  Start planning your dream journey with personalized recommendations today
+                </p>
+                <Button className="bg-[#fe385c] border-2 border-transparent hover:bg-transparent hover:border-2 hover:border-[#fe385c] hover:text-[#fe385c] text-white rounded-full px-8 py-4 text-lg shadow-md hover:shadow-lg transition-all duration-300">
+                  <strong>Start your travel adventure</strong>
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
