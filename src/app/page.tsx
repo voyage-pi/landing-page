@@ -1,87 +1,92 @@
-import { Image, Link, ChevronRight } from "../components/next-shim"
-import { Button } from "../components/ui/button"
-import Navbar from "../components/navbar"
-import { useState, useEffect } from "react"
+import { Image, Link } from "../components/next-shim";
+import { Button } from "../components/ui/button";
+import Navbar from "../components/navbar";
+import { useState, useEffect } from "react";
+import { getPublicAssetUrl, getNavigationUrl } from "../utils/assets";
 
-import PlatformDemo from "../components/PlatformDemo"
+import PlatformDemo from "../components/PlatformDemo";
 
 export default function Home() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
-  })
+    message: "",
+  });
   const [formErrors, setFormErrors] = useState({
     name: "",
     email: "",
-    message: ""
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   useEffect(() => {
     if (submitStatus === "success" || submitStatus === "error") {
       const timer = setTimeout(() => {
         setSubmitStatus("idle");
       }, 3000);
-      
+
       return () => clearTimeout(timer);
     }
   }, [submitStatus]);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { id, value } = e.target
-    setFormData(prev => ({
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({
       ...prev,
-      [id]: value
-    }))
+      [id]: value,
+    }));
     // Clear error when user types
     if (formErrors[id as keyof typeof formErrors]) {
-      setFormErrors(prev => ({
+      setFormErrors((prev) => ({
         ...prev,
-        [id]: ""
-      }))
+        [id]: "",
+      }));
     }
-  }
+  };
 
   const validateForm = () => {
-    let valid = true
+    let valid = true;
     const newErrors = {
       name: "",
       email: "",
-      message: ""
-    }
+      message: "",
+    };
 
     if (!formData.name.trim()) {
-      newErrors.name = "Name is required"
-      valid = false
+      newErrors.name = "Name is required";
+      valid = false;
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "Email is required"
-      valid = false
+      newErrors.email = "Email is required";
+      valid = false;
     } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address"
-      valid = false
+      newErrors.email = "Please enter a valid email address";
+      valid = false;
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "Message is required"
-      valid = false
+      newErrors.message = "Message is required";
+      valid = false;
     }
 
-    setFormErrors(newErrors)
-    return valid
-  }
+    setFormErrors(newErrors);
+    return valid;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    
-    if (!validateForm()) return
-    
-    setIsSubmitting(true)
-    setSubmitStatus("idle")
-    
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
     try {
       // Send form data to Formspree
       const response = await fetch("https://formspree.io/f/xrbqjkoa", {
@@ -94,23 +99,23 @@ export default function Home() {
           email: formData.email,
           message: formData.message,
         }),
-      })
-      
+      });
+
       if (response.ok) {
         // Reset form on success
-        setFormData({ name: "", email: "", message: "" })
-        setSubmitStatus("success")
+        setFormData({ name: "", email: "", message: "" });
+        setSubmitStatus("success");
       } else {
-        throw new Error("Failed to submit form")
+        throw new Error("Failed to submit form");
       }
     } catch (error) {
-      console.error("Error sending message:", error)
-      setSubmitStatus("error")
+      console.error("Error sending message:", error);
+      setSubmitStatus("error");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
-  
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -148,15 +153,21 @@ export default function Home() {
         <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
           <div className="max-w-5xl mx-auto text-center mb-8">
             <div className="font-extrabold font-heading leading-tighter tracking-tighter intersect-once intersect-quarter mb-4 md:text-8xl motion-safe:md:intersect:animate-fade text-7xl mx-auto my-16 text-center">
-              Say 
-              <span className="bg-clip-text bg-gradient-to-r from-secondary py-10 text-transparent to-secondary via-primary"> Bon Voyage</span> to Planning
+              Say
+              <span className="bg-clip-text bg-gradient-to-r from-secondary py-10 text-transparent to-secondary via-primary">
+                {" "}
+                Bon Voyage
+              </span>{" "}
+              to Planning
             </div>
             <p className="text-lg md:text-xl mb-8">
               A trip made for you. Where your taste shapes the journey.
             </p>
-            <Button className="bg-[#fe385c] border-2 border-transparent hover:bg-transparent hover:border-2 hover:border-[#fe385c] hover:text-[#fe385c] text-white rounded-full px-6 py-4 text-lg">
-              <strong>Get started. It's FREE.</strong>
-            </Button>
+            <Link href={getNavigationUrl("/")}>
+              <Button className="bg-[#fe385c] border-2 border-transparent hover:bg-transparent hover:border-2 hover:border-[#fe385c] hover:text-[#fe385c] text-white rounded-full px-6 py-4 text-lg">
+                <strong>Get started. It's FREE.</strong>
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -165,94 +176,118 @@ export default function Home() {
           {/* Central dark website - larger */}
           <div className="floating-print absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/3 z-30 w-[280px] sm:w-[400px] md:w-[500px] shadow-2xl border-4 border-white rounded-xl overflow-hidden">
             <Image
-              src="/screenshots/sh5.png"
+              src={getPublicAssetUrl("/screenshots/sh5.png")}
               alt="Website screenshot"
               width={500}
               height={300}
               className="w-full h-auto"
             />
           </div>
-          
+
           {/* Top left print */}
-          <div className="floating-print absolute left-[12%] top-[15%] z-20 w-[220px] md:w-[290px] shadow-xl border-4 border-white rounded-lg overflow-hidden" style={{zIndex: 5, transform: 'rotate(-2deg)'}}>
+          <div
+            className="floating-print absolute left-[12%] top-[15%] z-20 w-[220px] md:w-[290px] shadow-xl border-4 border-white rounded-lg overflow-hidden"
+            style={{ zIndex: 5, transform: "rotate(-2deg)" }}
+          >
             <Image
-              src="/screenshots/sh8.png"
+              src={getPublicAssetUrl("/screenshots/sh8.png")}
               alt="Website screenshot"
               width={290}
               height={180}
               className="w-full h-auto"
             />
           </div>
-          
+
           {/* Top right print */}
-          <div className="floating-print absolute right-[20%] top-[10%] z-20 w-[210px] md:w-[270px] shadow-xl border-4 border-white rounded-lg overflow-hidden" style={{zIndex: 6, transform: 'rotate(3deg)'}}>
+          <div
+            className="floating-print absolute right-[20%] top-[10%] z-20 w-[210px] md:w-[270px] shadow-xl border-4 border-white rounded-lg overflow-hidden"
+            style={{ zIndex: 6, transform: "rotate(3deg)" }}
+          >
             <Image
-              src="/screenshots/sh6.png"
+              src={getPublicAssetUrl("/screenshots/sh6.png")}
               alt="Website mockup"
               width={270}
               height={170}
               className="w-full h-auto"
             />
           </div>
-          
+
           {/* Mid left print */}
-          <div className="floating-print absolute left-[5%] top-[45%] z-10 w-[190px] md:w-[250px] shadow-xl border-4 border-white rounded-lg overflow-hidden" style={{zIndex: 4, transform: 'rotate(-4deg)'}}>
+          <div
+            className="floating-print absolute left-[5%] top-[45%] z-10 w-[190px] md:w-[250px] shadow-xl border-4 border-white rounded-lg overflow-hidden"
+            style={{ zIndex: 4, transform: "rotate(-4deg)" }}
+          >
             <Image
-              src="/screenshots/sh7.png"
+              src={getPublicAssetUrl("/screenshots/sh7.png")}
               alt="Website mockup"
               width={250}
               height={160}
               className="w-full h-auto"
             />
           </div>
-          
+
           {/* Mid right print */}
-          <div className="floating-print absolute right-[10%] top-[45%] z-10 w-[230px] md:w-[300px] shadow-xl border-4 border-white rounded-lg overflow-hidden" style={{zIndex: 3, transform: 'rotate(4deg)'}}>
+          <div
+            className="floating-print absolute right-[10%] top-[45%] z-10 w-[230px] md:w-[300px] shadow-xl border-4 border-white rounded-lg overflow-hidden"
+            style={{ zIndex: 3, transform: "rotate(4deg)" }}
+          >
             <Image
-              src="/screenshots/sh10.png"
+              src={getPublicAssetUrl("/screenshots/sh10.png")}
               alt="Website screenshot"
               width={300}
               height={180}
               className="w-full h-auto"
             />
           </div>
-          
+
           {/* Bottom left print */}
-          <div className="floating-print absolute left-[25%] bottom-[10%] z-20 w-[200px] md:w-[280px] shadow-xl border-4 border-white rounded-lg overflow-hidden" style={{zIndex: 7, transform: 'rotate(1deg)'}}>
+          <div
+            className="floating-print absolute left-[25%] bottom-[10%] z-20 w-[200px] md:w-[280px] shadow-xl border-4 border-white rounded-lg overflow-hidden"
+            style={{ zIndex: 7, transform: "rotate(1deg)" }}
+          >
             <Image
-              src="/screenshots/sh2.png"
+              src={getPublicAssetUrl("/screenshots/sh2.png")}
               alt="Website mockup"
               width={280}
               height={170}
               className="w-full h-auto"
             />
           </div>
-          
+
           {/* Bottom centered print - moved left and up */}
-          <div className="floating-print absolute left-[30%] bottom-[45%] transform z-20 w-[210px] md:w-[320px] shadow-xl border-4 border-white rounded-lg overflow-hidden" style={{zIndex: 9, transform: 'rotate(2deg)'}}>
+          <div
+            className="floating-print absolute left-[30%] bottom-[45%] transform z-20 w-[210px] md:w-[320px] shadow-xl border-4 border-white rounded-lg overflow-hidden"
+            style={{ zIndex: 9, transform: "rotate(2deg)" }}
+          >
             <Image
-              src="/screenshots/sh3.png"
+              src={getPublicAssetUrl("/screenshots/sh3.png")}
               alt="Website screenshot"
               width={320}
               height={190}
               className="w-full h-auto"
             />
           </div>
-          
+
           {/* Extra prints for fuller appearance */}
-          <div className="floating-print absolute left-[35%] top-[15%] z-10 w-[160px] md:w-[220px] shadow-xl border-4 border-white rounded-lg overflow-hidden" style={{zIndex: 2, transform: 'rotate(-5deg)'}}>
+          <div
+            className="floating-print absolute left-[35%] top-[15%] z-10 w-[160px] md:w-[220px] shadow-xl border-4 border-white rounded-lg overflow-hidden"
+            style={{ zIndex: 2, transform: "rotate(-5deg)" }}
+          >
             <Image
-              src="/screenshots/sh9.png"
+              src={getPublicAssetUrl("/screenshots/sh9.png")}
               alt="Website screenshot"
               width={220}
               height={140}
               className="w-full h-auto"
             />
           </div>
-          
-          <div className="floating-print absolute right-[30%] top-[25%] z-10 w-[170px] md:w-[240px] shadow-xl border-4 border-white rounded-lg overflow-hidden" style={{zIndex: 1, transform: 'rotate(5deg)'}}>
+
+          <div
+            className="floating-print absolute right-[30%] top-[25%] z-10 w-[170px] md:w-[240px] shadow-xl border-4 border-white rounded-lg overflow-hidden"
+            style={{ zIndex: 1, transform: "rotate(5deg)" }}
+          >
             <Image
-              src="/screenshots/sh1.png"
+              src={getPublicAssetUrl("/screenshots/sh1.png")}
               alt="Website screenshot"
               width={240}
               height={150}
@@ -263,7 +298,11 @@ export default function Home() {
 
         {/* Wave divider */}
         <div className="w-full relative z-1 mt-[-420px]">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+            className="w-full"
+          >
             <path
               className="wave-path"
               fill="#ffffff"
@@ -304,16 +343,16 @@ export default function Home() {
       <section className="py-28 bg-gradient-to-r from-[#f0f1f5] via-[#f8e4e8] to-[#f0f1f5] relative overflow-hidden min-h-[800px] -mt-12">
         {/* Wavy section divider at the top */}
         <div className="absolute top-0 left-0 w-full overflow-hidden">
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 1440 320" 
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
             className="w-full"
             preserveAspectRatio="none"
-            style={{ transform: 'rotate(180deg)', marginTop: '-2px' }}
+            style={{ transform: "rotate(180deg)", marginTop: "-2px" }}
           >
-            <path 
-              fill="#ffffff" 
-              fillOpacity="1" 
+            <path
+              fill="#ffffff"
+              fillOpacity="1"
               d="M0,64L60,58.7C120,53,240,43,360,74.7C480,107,600,181,720,186.7C840,192,960,128,1080,112C1200,96,1320,128,1380,144L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
               className="wave-path-top"
             ></path>
@@ -323,46 +362,47 @@ export default function Home() {
         {/* Wave Background Elements - Enhanced with more pronounced waves */}
         <div className="absolute inset-0 z-0 opacity-30" id="features">
           {/* New dense wave layers */}
-          
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 1440 640" 
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 640"
             className="absolute top-0 left-0 w-full h-full"
             preserveAspectRatio="none"
           >
-            <path 
-              fill="rgba(254, 56, 92, 0.2)" 
-              fillOpacity="1" 
+            <path
+              fill="rgba(254, 56, 92, 0.2)"
+              fillOpacity="1"
               d="M0,320L30,304C60,288,120,256,180,250.7C240,245,300,267,360,266.7C420,267,480,245,540,245.3C600,245,660,267,720,261.3C780,256,840,224,900,213.3C960,203,1020,213,1080,224C1140,235,1200,245,1260,250.7C1320,256,1380,256,1410,256L1440,256L1440,384L1410,405.3C1380,427,1320,469,1260,474.7C1200,480,1140,448,1080,442.7C1020,437,960,459,900,448C840,437,780,395,720,389.3C660,384,600,416,540,432C480,448,420,448,360,426.7C300,405,240,363,180,352C120,341,60,363,30,373.3L0,384Z"
               className="wave-animation-1 animate-wave-slow"
             ></path>
           </svg>
-          
+
           {/* Add another wave with different timing */}
-          
         </div>
 
         <div className="container mx-auto px-4 relative z-10 my-80">
           <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-28 leading-tight tracking-tight">
-            <span className="bg-clip-text bg-gradient-to-r from-secondary to-secondary via-primary text-transparent">Because your taste deserves</span> more than generic recommendations
+            <span className="bg-clip-text bg-gradient-to-r from-secondary to-secondary via-primary text-transparent">
+              Because your taste deserves
+            </span>{" "}
+            more than generic recommendations
           </h2>
-          
+
           <PlatformDemo />
-          
         </div>
-        
+
         {/* Wavy section divider at the bottom */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden">
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 1440 320" 
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
             className="w-full"
             preserveAspectRatio="none"
-            style={{ marginBottom: '-2px' }}
+            style={{ marginBottom: "-2px" }}
           >
-            <path 
-              fill="#ffffff" 
-              fillOpacity="1" 
+            <path
+              fill="#ffffff"
+              fillOpacity="1"
               d="M0,64L60,58.7C120,53,240,43,360,74.7C480,107,600,181,720,186.7C840,192,960,128,1080,112C1200,96,1320,128,1380,144L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
               className="wave-path-bottom animate-wave-fast"
             ></path>
@@ -371,9 +411,7 @@ export default function Home() {
       </section>
 
       {/* Wave divider between sections */}
-      <div className="w-full relative z-10 bg-gradient-to-r from-[#f0f1f5] via-[#f8e4e8] to-[#f0f1f5] overflow-hidden mt-[-100px]">
-        
-      </div>
+      <div className="w-full relative z-10 bg-gradient-to-r from-[#f0f1f5] via-[#f8e4e8] to-[#f0f1f5] overflow-hidden mt-[-100px]"></div>
 
       {/* CTA Section */}
       <section className="my-10 bg-white relative overflow-hidden">
@@ -383,18 +421,23 @@ export default function Home() {
               {/* Decorative elements */}
               <div className="absolute top-0 right-0 -mt-8 -mr-8 w-40 h-40 rounded-full bg-[#fe385c]/5"></div>
               <div className="absolute bottom-0 left-0 -mb-8 -ml-8 w-32 h-32 rounded-full bg-[#fe385c]/5"></div>
-              
+
               <div className="relative text-center">
-                <h2 className="text-5xl md:text-5xl font-bold mb-6 text-[#2c303b]">Ready to get started?</h2>
+                <h2 className="text-5xl md:text-5xl font-bold mb-6 text-[#2c303b]">
+                  Ready to get started?
+                </h2>
                 <p className="text-lg md:text-xl mb-2 max-w-3xl mx-auto text-[#2c303b]/80">
-                  Start planning your dream journey with personalized recommendations today.
+                  Start planning your dream journey with personalized
+                  recommendations today.
                 </p>
                 <p className="text-lg md:text-xl mb-14 max-w-3xl mx-auto text-[#2c303b]/80">
                   We're here to help you plan the perfect trip.
                 </p>
-                <Button className="bg-[#fe385c] border-2 border-transparent hover:bg-transparent hover:border-2 hover:border-[#fe385c] hover:text-[#fe385c] text-white rounded-full px-8 py-4 text-lg shadow-md hover:shadow-lg transition-all duration-300">
-                  <strong>Start your travel adventure!</strong>
-                </Button>
+                <Link href={getNavigationUrl("/")}>
+                  <Button className="bg-[#fe385c] border-2 border-transparent hover:bg-transparent hover:border-2 hover:border-[#fe385c] hover:text-[#fe385c] text-white rounded-full px-8 py-4 text-lg shadow-md hover:shadow-lg transition-all duration-300">
+                    <strong>Start your travel adventure!</strong>
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -408,16 +451,21 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Left column: Text content */}
             <div className="rounded-xl bg-white ">
-              <h1 className="text-4xl font-extrabold mb-1 text-[#2c303b]">HAVE ANY QUESTIONS? </h1>
+              <h1 className="text-4xl font-extrabold mb-1 text-[#2c303b]">
+                HAVE ANY QUESTIONS?{" "}
+              </h1>
 
-              <h3 className="text-xl mb-5 text-[#2c303b]/60">We'd love to hear from you</h3>
+              <h3 className="text-xl mb-5 text-[#2c303b]/60">
+                We'd love to hear from you
+              </h3>
               <p className="text-gray-600 mb-6">
-                Have questions about our platform? Looking for travel recommendations? 
-                Or maybe you have suggestions to make your journey planning experience even better? 
-                We're all ears!
+                Have questions about our platform? Looking for travel
+                recommendations? Or maybe you have suggestions to make your
+                journey planning experience even better? We're all ears!
               </p>
               <p className="text-gray-600 mb-6">
-                Drop us a message and our team will get back to you as soon as possible.
+                Drop us a message and our team will get back to you as soon as
+                possible.
               </p>
               <div className="flex items-center mt-8">
                 <div className="w-12 h-12 bg-[#fe385c]/10 rounded-full flex items-center justify-center mr-4">
@@ -444,57 +492,90 @@ export default function Home() {
             <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Name
+                  </label>
                   <input
                     type="text"
                     id="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border ${formErrors.name ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-[#fe385c] focus:border-[#fe385c] outline-none`}
+                    className={`w-full px-4 py-3 border ${
+                      formErrors.name ? "border-red-500" : "border-gray-300"
+                    } rounded-lg focus:ring-[#fe385c] focus:border-[#fe385c] outline-none`}
                     placeholder="Your name"
                   />
-                  {formErrors.name && <p className="mt-1 text-sm text-red-500">{formErrors.name}</p>}
+                  {formErrors.name && (
+                    <p className="mt-1 text-sm text-red-500">
+                      {formErrors.name}
+                    </p>
+                  )}
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Email
+                  </label>
                   <input
                     type="email"
                     id="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border ${formErrors.email ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-[#fe385c] focus:border-[#fe385c] outline-none`}
+                    className={`w-full px-4 py-3 border ${
+                      formErrors.email ? "border-red-500" : "border-gray-300"
+                    } rounded-lg focus:ring-[#fe385c] focus:border-[#fe385c] outline-none`}
                     placeholder="Your email address"
                   />
-                  {formErrors.email && <p className="mt-1 text-sm text-red-500">{formErrors.email}</p>}
+                  {formErrors.email && (
+                    <p className="mt-1 text-sm text-red-500">
+                      {formErrors.email}
+                    </p>
+                  )}
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Message
+                  </label>
                   <textarea
                     id="message"
                     rows={5}
                     value={formData.message}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border ${formErrors.message ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-[#fe385c] focus:border-[#fe385c] outline-none resize-none`}
+                    className={`w-full px-4 py-3 border ${
+                      formErrors.message ? "border-red-500" : "border-gray-300"
+                    } rounded-lg focus:ring-[#fe385c] focus:border-[#fe385c] outline-none resize-none`}
                     placeholder="Type your message here..."
                   ></textarea>
-                  {formErrors.message && <p className="mt-1 text-sm text-red-500">{formErrors.message}</p>}
+                  {formErrors.message && (
+                    <p className="mt-1 text-sm text-red-500">
+                      {formErrors.message}
+                    </p>
+                  )}
                 </div>
-                
+
                 {submitStatus === "success" && (
                   <div className="p-3 bg-green-100 text-green-700 rounded-lg">
                     Message sent successfully! We'll get back to you soon.
                   </div>
                 )}
-                
+
                 {submitStatus === "error" && (
                   <div className="p-3 bg-red-100 text-red-700 rounded-lg">
                     Failed to send message. Please try again later.
                   </div>
                 )}
-                
-                <Button 
+
+                <Button
                   type="submit"
-                  disabled={isSubmitting} 
+                  disabled={isSubmitting}
                   className="w-full bg-[#fe385c] border-2 border-transparent hover:bg-transparent hover:border-2 hover:border-[#fe385c] hover:text-[#fe385c] text-white py-3 rounded-lg"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
@@ -511,7 +592,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0 flex items-center">
               <Image
-                src="/voyage.png"
+                src={getPublicAssetUrl("/voyage.png")}
                 alt="Voyage Logo"
                 width={40}
                 height={40}
@@ -519,7 +600,10 @@ export default function Home() {
               />
             </div>
             <div className="flex space-x-6">
-              <Link href="#" className="text-gray-500 hover:text-[#2c303b]">
+              <Link
+                href={getNavigationUrl("/")}
+                className="text-gray-500 hover:text-[#2c303b]"
+              >
                 Join us now!
               </Link>
             </div>
@@ -527,7 +611,7 @@ export default function Home() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
 
 // Sample data
@@ -550,7 +634,8 @@ const features = [
       </svg>
     ),
     title: "Dream Journey Designer",
-    description: "Create a personalized itinerary based on your preferences and interests.",
+    description:
+      "Create a personalized itinerary based on your preferences and interests.",
   },
   {
     icon: (
@@ -570,7 +655,8 @@ const features = [
       </svg>
     ),
     title: "Local Secrets Revealed",
-    description: "Get personalized recommendations for your trip, including activities, attractions and more.",
+    description:
+      "Get personalized recommendations for your trip, including activities, attractions and more.",
   },
   {
     icon: (
@@ -590,7 +676,8 @@ const features = [
       </svg>
     ),
     title: "Money Magic Tracker",
-    description: "Set the perfect budget for your trip and make every penny count towards unforgettable experiences.",
+    description:
+      "Set the perfect budget for your trip and make every penny count towards unforgettable experiences.",
   },
   {
     icon: (
@@ -610,7 +697,8 @@ const features = [
       </svg>
     ),
     title: "Memory Time Capsule",
-    description: "Build your personal travel journal and share that with your friends to inspire their next adventure.",
+    description:
+      "Build your personal travel journal and share that with your friends to inspire their next adventure.",
   },
   {
     icon: (
@@ -630,7 +718,8 @@ const features = [
       </svg>
     ),
     title: "Friends Adventure Feed",
-    description: "Follow your friends' journeys and get inspired by their discoveries.",
+    description:
+      "Follow your friends' journeys and get inspired by their discoveries.",
   },
   {
     icon: (
@@ -650,6 +739,7 @@ const features = [
       </svg>
     ),
     title: "Group Travel Harmony",
-    description: "Plan incredible trips together with shared itineraries that combine the interests of all group members.",
+    description:
+      "Plan incredible trips together with shared itineraries that combine the interests of all group members.",
   },
-]
+];
