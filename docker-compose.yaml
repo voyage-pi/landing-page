@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  landing-page:
+    build: .
+    container_name: landing-page
+    ports:
+      - "5174:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
