@@ -7,30 +7,30 @@ import { Image } from "./next-shim";
 // Define the feature data
 const features = [
   {
-    id: "organize",
-    title: "Keep everything in one place",
-    description: "Organize your travel itineraries, bookings and routes. Add accommodation, activities and transport to each destination.",
+    id: "itinerary",
+    title: "Your Trip, Your Way",
+    description: "Build a custom itinerary tailored to your preferences and budget. Easily adapt your trip plans as you go.",
     color: "#ff4967",
     textColor: "white"
   },
   {
-    id: "group",
-    title: "Supercharge group travel planning",
-    description: "Plan the perfect group trip with your friends and family. Create collaborative itineraries, share ideas and make decisions together.",
+    id: "preferences",
+    title: "Travel Smarter, Not Harder",
+    description: "Answer a few questions to set your travel style. Make keyword-based suggestions and add must-visit spots.",
     color: "#f8789d",
     textColor: "white"
   },
   {
-    id: "share",
-    title: "Share your adventures with friends & family",
-    description: "Create travel journals and share them with your friends - or keep them to yourself. Upload your travel photos and generate travel reels.",
+    id: "map",
+    title: "See Your Journeys Come to Life",
+    description: "Get a global view of all the trips you've taken. Explore your travel history through an interactive map that stores every journey.",
     color: "#ff9d7a",
     textColor: "white"
   },
   {
-    id: "discover",
-    title: "Discover expert travel tips and itineraries",
-    description: "Discover insider travel tips, copy itineraries from travel experts and personalize them to your needs.",
+    id: "friends",
+    title: "Make Memories Together",
+    description: "Connect with friends, plan trips together, and explore new destinations as a group.",
     color: "#da8bb6",
     textColor: "white"
   }
@@ -78,7 +78,7 @@ const DemoRectangle = ({ color }: { color: string }) => {
 
 // Main component
 export default function PlatformDemo() {
-  const [activeFeature, setActiveFeature] = useState<string>("organize");
+  const [activeFeature, setActiveFeature] = useState<string>(features[0].id);
   
   // Get active feature color
   const getActiveFeatureColor = () => {
