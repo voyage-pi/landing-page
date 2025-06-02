@@ -7,66 +7,70 @@ import { Image } from "./next-shim";
 // Define the feature data
 const features = [
   {
-    id: "organize",
-    title: "Keep everything in one place",
-    description: "Organize your travel itineraries, bookings and routes. Add accommodation, activities and transport to each destination.",
+    id: "itinerary",
+    title: "Your Trip, Your Way",
+    description: "Build a custom itinerary tailored to your preferences and budget. Easily adapt your trip plans as you go.",
     color: "#ff4967",
-    textColor: "white"
+    textColor: "white",
+    videoSrc: "/demos/1.webm"
   },
   {
-    id: "group",
-    title: "Supercharge group travel planning",
-    description: "Plan the perfect group trip with your friends and family. Create collaborative itineraries, share ideas and make decisions together.",
+    id: "preferences",
+    title: "Travel Smarter, Not Harder",
+    description: "Answer a few questions to set your travel style. Make keyword-based suggestions and add must-visit spots.",
     color: "#f8789d",
-    textColor: "white"
+    textColor: "white",
+    videoSrc: "/demos/2.webm"
   },
   {
-    id: "share",
-    title: "Share your adventures with friends & family",
-    description: "Create travel journals and share them with your friends - or keep them to yourself. Upload your travel photos and generate travel reels.",
+    id: "map",
+    title: "See Your Journeys Come to Life",
+    description: "Get a global view of all the trips you've taken. Explore your travel history through an interactive map that stores every journey.",
     color: "#ff9d7a",
-    textColor: "white"
+    textColor: "white",
+    videoSrc: "/demos/3.webm"
   },
   {
-    id: "discover",
-    title: "Discover expert travel tips and itineraries",
-    description: "Discover insider travel tips, copy itineraries from travel experts and personalize them to your needs.",
+    id: "friends",
+    title: "Make Memories Together",
+    description: "Connect with friends, plan trips together, and explore new destinations as a group.",
     color: "#da8bb6",
-    textColor: "white"
+    textColor: "white",
+    videoSrc: "/demos/4.webm"
   }
 ];
 
 // Replacing the detailed demo components with simple rectangles
-const DemoRectangle = ({ color }: { color: string }) => {
+const DemoRectangle = ({ color, videoSrc }: { color: string; videoSrc: string }) => {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
     <div className="bg-white/90 rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
       <div className="flex-grow relative">
         <div 
-          className="w-full h-full flex items-center justify-center transition-all duration-500 rounded-t-xl"
+          className="w-full h-full flex items-center justify-center transition-all duration-500 rounded-t-xl overflow-hidden"
           style={{ backgroundColor: `${color}30` }}
         >
-          <div 
-            className="w-20 h-20 rounded-full shadow-lg flex items-center justify-center transition-all duration-500"
-            style={{ backgroundColor: color }}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
+          <video 
+            src={videoSrc}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+            style={{ transform: 'scale(1.005)' }}
+          />
         </div>
       </div>
       <div 
-        className={`p-6 text-center cursor-pointer transition-all duration-300 ${isHovered ? 'rounded-b-xl' : 'rounded-xl'}`}
+        className={`border-t-2 border-gray-100 p-6 text-center cursor-pointer transition-all duration-300 ${isHovered ? 'rounded-b-xl' : 'rounded-xl'}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{ 
           backgroundColor: isHovered ? color : 'transparent'
         }}
       >
-        <p className="text-lg font-medium transition-colors duration-300" style={{ 
+        <p className="text-lg font-medium transition-colors duration-300 " style={{ 
           color: isHovered ? 'white' : color 
         }}>
           Interested in our platform? Join us now!
@@ -78,13 +82,18 @@ const DemoRectangle = ({ color }: { color: string }) => {
 
 // Main component
 export default function PlatformDemo() {
-  const [activeFeature, setActiveFeature] = useState<string>("organize");
+  const [activeFeature, setActiveFeature] = useState<string>(features[0].id);
   
-  // Get active feature color
-  const getActiveFeatureColor = () => {
+  // Get active feature color and video source
+  const getActiveFeatureData = () => {
     const feature = features.find(f => f.id === activeFeature);
-    return feature ? feature.color : "#1ce3bb";
+    return {
+      color: feature ? feature.color : "#1ce3bb",
+      videoSrc: feature ? feature.videoSrc : "/demos/1.webm"
+    };
   };
+  
+  const activeFeatureData = getActiveFeatureData();
   
   return (
     <div className="flex flex-col md:flex-row gap-8 mb-12">
@@ -149,7 +158,7 @@ export default function PlatformDemo() {
       
       {/* Feature Demo Rectangle on Right */}
       <div className="md:w-3/5 min-h-full">
-        <DemoRectangle color={getActiveFeatureColor()} />
+        <DemoRectangle color={activeFeatureData.color} videoSrc={activeFeatureData.videoSrc} />
       </div>
     </div>
   );
