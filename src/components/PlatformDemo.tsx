@@ -63,14 +63,14 @@ const DemoRectangle = ({ color, videoSrc }: { color: string; videoSrc: string })
         </div>
       </div>
       <div 
-        className={`p-6 text-center cursor-pointer transition-all duration-300 ${isHovered ? 'rounded-b-xl' : 'rounded-xl'}`}
+        className={`border-t-2 border-gray-100 p-6 text-center cursor-pointer transition-all duration-300 ${isHovered ? 'rounded-b-xl' : 'rounded-xl'}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         style={{ 
           backgroundColor: isHovered ? color : 'transparent'
         }}
       >
-        <p className="text-lg font-medium transition-colors duration-300" style={{ 
+        <p className="text-lg font-medium transition-colors duration-300 " style={{ 
           color: isHovered ? 'white' : color 
         }}>
           Interested in our platform? Join us now!
